@@ -1,0 +1,15 @@
+{
+  "name": "refactorch1",
+  "version": "1.0.0",
+  "description": "refactoring nachvollziehen",
+  "main": "statement.js",
+  "scripts": {
+    "test": "test karma"
+  },
+  "author": "Seb",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine": "^3.3.1"
+  }
+}
