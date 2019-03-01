@@ -1,0 +1,27 @@
+Git
+Basic:
+git add
+git commit -m ""
+git push origin master
+
+
+letzten commits anschauen
+git log --oneline
+
+git checkout <Hash>
+- auf der ausgecheckten Version rumprobieren
+
+git revert HEAD / <Hash was undone werden soll>
+- macht den letzten commit weg
+
+git reset --hard <Hash des ZielCommits>
+löscht alles was danach kam. Darf aber nicht im Wiederspruch zum remote stehen, da es sonst als veraltet gilt
+
+zurücksetzen auf alten commit:
+1.) git log --oneline
+2.) git revert HEAD / <Hash was undone werden soll>
+3.) git push origin master
+
+
+
+
