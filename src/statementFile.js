@@ -1,6 +1,6 @@
 import createStatement from './createStatement.js';
 
-function statement(invoice, plays) {
+export default function statement(invoice, plays) {
     const statementData = createStatement(invoice, plays);
     return renderPlainText(statementData, plays);    
 }

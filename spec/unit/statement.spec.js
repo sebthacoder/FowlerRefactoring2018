@@ -1,6 +1,6 @@
-// import {statement} from './statementFile.js'
+import {statement} from '../../src/statementFile'
 // C:\Dev\RefaktorJS\ch11\lib\statementFile.js
-const statementFile = require('../../src/statementFile');
+//const statementFile = require('../../src/statementFile');
 
 
 
@@ -13,7 +13,7 @@ describe("create invoice", function() {
  
   it("should print invoice", function() {
     var expectedString = `Statement for BigCo Hamlet: US$ 650.00 (55 seats) As You Like It: US$ 580.00 (35 seats) Othello: US$ 500.00 (40 seats)Amount owed is US$ 1,730.00You earned 47 credits`.replace(/\s/gm,"")
-    var actual = statementFile.statement(invoice, plays).replace(/\s/gm,"")
+    var actual = statement(invoice, plays).replace(/\s/gm,"")
     console.log(actual)
     console.log(expectedString)
     expect(actual).toEqual(expectedString);
