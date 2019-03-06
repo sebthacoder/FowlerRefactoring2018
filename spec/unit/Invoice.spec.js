@@ -1,6 +1,6 @@
 // import {statement} from './statementFile.js'
 // C:\Dev\RefaktorJS\ch11\lib\statementFile.js
-const statementFile = require('../../lib/statementFile');
+const statementFile = require('../../src/statementFile');
 
 
 

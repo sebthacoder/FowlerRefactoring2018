@@ -8,8 +8,17 @@
   },
   "author": "Seb",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5"
+  },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/register": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-register": "^6.26.0",
     "jasmine": "^3.3.1"
   }
 }

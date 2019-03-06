@@ -1,8 +1,8 @@
 import createStatement from './createStatement.js';
 
 function statement(invoice, plays) {
-    const statementData = createStatementData(invoice, plays);
-    return renderPlainText(statementData, plays);
+    const statementData = createStatement(invoice, plays);
+    return renderPlainText(statementData, plays);    
 }
 
 function renderPlainText(data, plays) {
@@ -17,7 +17,7 @@ function renderPlainText(data, plays) {
 
     function usd(aNumber) {
         return new Intl.NumberFormat("enUS", {
-            style: "currency", currency: "USD",
+        style: "currency", currency: "USD",
             minimumFractionDigits: 2
         }).format(aNumber / 100);
     }
@@ -25,7 +25,6 @@ function renderPlainText(data, plays) {
 
 module.exports = {
     statement: statement
+}
 
-    //console.log(statement(invoices[0], plays));
-
-};
+//console.log(statement(invoices[0], plays));
