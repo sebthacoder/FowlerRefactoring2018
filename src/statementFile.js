@@ -1,6 +1,7 @@
 import createStatement from './createStatement.js';
+export {statement}
 
-export default function statement(invoice, plays) {
+function statement(invoice, plays) {
     const statementData = createStatement(invoice, plays);
     return renderPlainText(statementData, plays);    
 }
@@ -22,9 +23,3 @@ function renderPlainText(data, plays) {
         }).format(aNumber / 100);
     }
 }
-
-module.exports = {
-    statement: statement
-}
-
-//console.log(statement(invoices[0], plays));
