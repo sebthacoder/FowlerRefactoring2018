@@ -1,6 +1,6 @@
 import {statement} from '../../src/statementFile'
-import plays from './plays.json'
-import invoices from './invoices.json'
+import plays from '../../assets/plays.json'
+import invoices from '../../assets/invoices.json'
 
 
 describe("create invoice", function() {
