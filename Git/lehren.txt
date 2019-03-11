@@ -1,0 +1,5 @@
+Refactoring Lehren:
+
+- adding enough structure to the function so that I can understand it
+- good naming
+-> functionality change
