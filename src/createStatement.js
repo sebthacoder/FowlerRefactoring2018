@@ -1,7 +1,7 @@
 class PerformanceCalculator {
     constructor(aPerformance, aPlay) {
-    this.performance = aPerformance;
-    this.play = aPlay;
+        this.play = aPlay;
+        this.performance = aPerformance;        
     }
 
     get amount(){
@@ -36,6 +36,14 @@ class PerformanceCalculator {
     }
 }
 
+class TragedyCalculator extends PerformanceCalculator {}
+
+class ComedyCalculator extends PerformanceCalculator {}
+
+function createPerformanceCalculator(aPerformance, aPlay) {
+    return new PerformanceCalculator(aPerformance, aPlay);
+}
+
 
 export default function createStatementData(invoice, plays) {
     const statementData = {};
@@ -46,11 +54,11 @@ export default function createStatementData(invoice, plays) {
     return statementData;
 
     function enrichPerformance(aPerformance) {
-        const calculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
+        const calculator = createPerformanceCalculator(aPerformance, playFor(aPerformance));
         const result = Object.assign({}, aPerformance);
         result.play = calculator.play;
         result.amount = calculator.amount;
-        result.volumeCredits = volumeCreditsFor(result);
+        result.volumeCredits = calculator.volumeCredits;
         return result;
     }
 
