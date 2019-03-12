@@ -65,7 +65,38 @@ der Codestellen in z.B. eine Klasse/"Modul"
 - Datenklumpen: treten Daten oft zusammen auf pack sie zusammen -> A good test is to consider deleting one of the data values. If you did this, would the
 others make any sense? If they don’t, it’s a sure sign that you have an object that’s dying
 to be born.
-- Primitive Obsession: 
+- Primitive Obsession: Nutze Objekte statt primitive Datentypen. z.B. Geld, Koordinaten, Mengenangaben mit Einheiten
+- switch statements, die sich öfter wiederholen: -> besser Polymorphie
+- Schleifen: durch Pipes/Funktionen ersetzen (filter/map/reduce)
+- Einsame Elemente: z.B. Klasse mit einer simplen Funktion -> nehm ein Inline Statement
+- spekulative Generalisierbarkeit (SPECULATIVE GENERALITY): Sachen im voraus programmieren -> raus mit ungenutztem Zeug
+- temporary field: Nicht genutzte Variablen
+- message chains: erkennbar an langen verketteten getThis() statements
+- middle man: -> entfernen
+- INSIDER TRADING: 
+- große Klassen
+- ALTERNATIVE CLASSES WITH DIFFERENT INTERFACES
+- reine Data CLASS: Kann aus Klassen, wo mit den Data Classes gearbeitet wird Methoden in die Data Class gezogen werden?
+- REFUSED BEQUEST (nichtgewollter Nachlass der Elternklassen): Funktionalität wird nicht genutzt -> traditionell: 
+Geschwisterklassen schaffen Code auslagern; oder Replace Subclass with Delegate; oft ist der smell auc nocht so schlimm
+- Kommentare: Oft Deo für schlecht verständlichen Code -> If you need a comment to explain what a block of code does, try Extract Function (106).
+If the method is already extracted but you still need a comment to explain what it does,
+use Change Function Declaration (124) to rename it. If you need to state some rules
+about the required state of the system, use Introduce Assertion (302). Kommentar ok wenn: Warum etwas getan wurde;
+Ausdruck von Unsicherheit
+- 
+
+Kap. 4
+- Warum erhöhen Tests die Effektivität eines Programmierers?- Debugging sehr zeitaufwendig; Tests = Bug detector
+- selbst-testender Code: hat Vergleichswerte
+- Argumente TDD:
+	- I’m asking myself what needs to be done to add the function.
+	- Konzentration auf das Interface statt auf die Implementierung
+	- klares Ziel der Programmierung (erreicht, wenn Tests grün sind)
+- 
+
+
+
 
 
 
