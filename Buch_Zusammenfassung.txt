@@ -1,0 +1,72 @@
+Refaktoring Notes
+
+Kap. 2
+- Refactoring spart Zeit und Geld bei der Implementierung
+- Ohne Refactoring dauern Änderungen immer länger
+- Refactorn, wenn man oft mit bestimmtem Code arbeitet
+- objektorientiert Daten zusammenziehen, an einer Stelle verfügbar halten (siehe Calculator)
+- kleine Funktionen
+
+Prinzipien:
+- Entwickler entweder neue Features oder Refactore: nie zum selben Zeitpunkt sondern in (kleinen Intervallen)
+- Gründe Refactoring: besseres Software Design; bessere Verständlichkleit der SW; Bugs werden offensichtlich;
+Features lassen sich leichter implementieren
+- Wann refactorn: Beim Hinzufühen neuer Features; beim erarbeiten des Verstehens von Code; Müll sammeln (dopplete Funktionenetc.);
+lieber opprotunistisch (wenn man eh grad dran ist) refaktorn statt geplant (indirekt priorisiert); lieber kontinuierlich als
+im einem Rutsch; Im Code Review
+- Wann nicht: wenn der Code nicht geändert werden muss
+
+
+
+
+
+#flexibility mechanisms simple design, incremental design, or yagni:
+	- Flexibilität nicht planen, sondern Software bauen, die jetzige Anforderungen optimal umsetzt. Alles was die Software komplizierter
+	macht fliegt erst mal raus
+	- Ausnahme: wenn man etwas sieht, was später nur seht schwer zu refaktorn ist
+
+- greift ineinander: continuous integration, selftesting code, and refactoring -> agil
+- Software Geschwindigkeit: 
+	- erst tunebar machen (refactoring) dann tunen; 
+	- erst Performance messen, dann Verbesserungen erarbeiten (https://www.baeldung.com/java-profilers)
+	- die meiste Arbeit wird in etwa 10% des Codes geleistet
+	
+- refactoring tools
+	- gute tools machen nicht reine Textmanipulation, sondern nutzen den Syntax-Baum des Quelltextes
+	- Language Server für Texteditoren: https://github.com/sourcegraph/javascript-typescript-langserver
+
+weitere Bücher	
+- praktische Übungen zum refactoring: Bill Wake’s Refactoring Workbook
+- Refacoting und Design Patterns: Refactoring to Patterns [Kerievsky]
+- Datenbanken und HTML refaktorn: Refactoring Databases [Ambler & Sadalage] (by Scott Ambler and Pramod Sadalage)
+and Refactoring HTML
+- Michael Feathers’s Working Effectively with Legacy Code
+- refactoring.com
+
+Kap 3
+
+- Wann refactorn: Wenns riecht
+- menschliche Intuition ist besser als starre REgeln, um zu entscheiden, wann refactort werden soll
+
+Code Smells:
+- Unverständlicher/mysteriöser Name; wenn es keinen guten gibt: Designproblem?
+- doppelter Code (mit leichten Variationen)
+- lange Funktionen - whenever we feel the need to comment something, we write a function instead; viele Parameter?
+use Replace Temp with Query (178) to eliminate the temps. Long lists of parameters can be slimmed down with Introduce Parameter Object (140)
+and Preserve Whole Object (319); Conditionals and loops sollten extrahiert werden
+- lange Parameterlisten -> z.B. Objekte
+- Globale Daten: globale Variablen, Klassenvariablen, Singletons
+- veränderbare Daten
+- Divergent change (ausstahlende Änderungen) -> Wenn ich eine fachliche Sache mehrfach 
+ändern will und immer wieder den gleichen Code anfassen muss
+- Shotgun surgery -> eine Änderung zieht viele keine Änderungen an verschiedenen Orten nach sich -> Bündelung 
+der Codestellen in z.B. eine Klasse/"Modul" 
+- Feature Envy (Featureneid) function clearly wants to be with the data (dream home) - Aber Stategy und Visitor pattern
+- Datenklumpen: treten Daten oft zusammen auf pack sie zusammen -> A good test is to consider deleting one of the data values. If you did this, would the
+others make any sense? If they don’t, it’s a sure sign that you have an object that’s dying
+to be born.
+- Primitive Obsession: 
+
+
+
+
