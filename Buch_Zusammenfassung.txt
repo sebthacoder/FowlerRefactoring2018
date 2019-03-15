@@ -87,17 +87,77 @@ Ausdruck von Unsicherheit
 - 
 
 Kap. 4
+- "Testable JavaScript" -> TDD
 - Warum erhöhen Tests die Effektivität eines Programmierers?- Debugging sehr zeitaufwendig; Tests = Bug detector
 - selbst-testender Code: hat Vergleichswerte
 - Argumente TDD:
 	- I’m asking myself what needs to be done to add the function.
 	- Konzentration auf das Interface statt auf die Implementierung
 	- klares Ziel der Programmierung (erreicht, wenn Tests grün sind)
-- 
+
+- Was soll getestet werden?
+	- I don’t test accessors that just read and write a field
+	- My focus is to test the areas that I’m most worried about going wrong.
+
+- setupexerciseverify, givenwhenthen, or arrangeactassert -> erst Fixure testen dann erweiterte Tests
+- wenn zwei asserts sehr eng zusammenhängen, dann können Sie auch mal in einen Test
+- When you get a bug report, start by writing a unit test that exposes the bug.
+
+Kap.5 
+Katalog um sich Refaktoring Schritte zu vergegenwärtigen
 
 
+Kap.6
+Extract Method:
+If you have to spend effort looking at a fragment of code and figuring
+out what it’s doing, then you should extract it into a function and name the function
+after the “what.” 
+-> Die Implementierungsmethode hat einen anderen Kontext in dem Sie Sinn 
+macht. Neuer Kontext = neuer Name = besser verständlich
+-> Methodenname: name it by what it does, not by how it does it
+-> kein guter Name verfügbar? -> Doch besser inline verwenden
+-> möglichst nested functions verwenden: reduce the amount of outofscope
+variables to deal with after the next couple of steps -> gibts in Kotlin
 
+Inline Function
+- Wenn der Methodenname nichts zur Klarheit von dem was passiert beiträgt. Z.B.: function more#ThanFiveLateDeliveries(driver) {return driver.numberOfLateDeliveries >5; }
+- als Zwischenschritt: Inline Function dann Extract, so dass sie besser Refaktored sind
+- Frage: Wann ist die delegation an eine andere Funktion sinnvoll?
+- nicht machen wenns kompliziert wird oder dei Methode vererbt wird
 
+Extract Variable
+- break the expression down into something more manageable
+- ability to name a part of a more complex piece of logic
+- easy hook for a debugger
+- im Kontext einer Klasse nicht in eine lokale Variable, sondern in eine getter-Methode auslagern
 
+Inline Variable
+- auch hier: bringt der Name der Variablen Kontext/ mehr Klarheit?
 
+CHANGE FUNCTION DECLARATION
+- Funktionsdeklarationen sind die Verbindungspunkte der Software und bestimmen damit ihre Erweiterbarkeit
+- A good name allows me to understand what the function does when I see it called
+- Often, a good way to improve a name is to write a comment to describe the function’s purpose, then turn that comment into a
+name.
+- Bsp. Formatierung einer Telefonnummer
+	- formatiereTelefonnummmer(Person) -> kann nicht für Firmen formatieren
+	- formatiereTelefonnummmer(number) -> großer einsatzbereich
+	- remove some coupling/ Module loser koppeln -> Änderungen einfacher
+- nimmt hingegen man ein Objekt als Parameter der Funktion, muss der aufrufene Code nicht geändert werden, sollte man zusätzliche 
+	Parameter benötigen + bessere Kapselung (Bsp.  istRechnungUeberfaellig(Rechnung vs. Fälligkeitsdatum)
+- hängt die Berechnung nur von einem Parameter eines Objekts ab -> eher Variable als Parameter
+	
+ENCAPSULATE VARIABLE
+Basis: eine globale Variable
+- Daten wie z.B. Objekte z.B. {vorname= "John", nachname="Doe"}; in Funktionen packen
+- funktionen können leichter geändert werden
+- It provides a clear point to monitor changes and use of the data; I can easily add validation or consequential logic on the updates.
+-> Getter/setter
+-> hiermit ist der Zugriff auf die Referenz der Variable geregelt
 
+	Encapsulate Values -> Inhalte der Variable kontrollieren (Ist ja nicht in einem Objekt, deshalb wird der Wert verändert)
+	- Kopie übergeben= return Object.assign({}, defaultOwnerData)
+	- in Objekt wrappen: return new Person(defaultOwnerData);}
+	-> Vorsicht: funktioniert nur auf gegebenen Level; auf tieferen Schichten der Datenstruktur nochmal implementieren!
+	
+RENAME VARIABLE
